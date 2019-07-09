@@ -7,9 +7,23 @@ class TrendsArea extends Component {
             <div className="trendsArea">
                 <h2 className="trendsArea__titulo widget__titulo">Trends Brasil</h2>
                 <ol className="trendsArea__lista">
+                {/*
                     <li><a href="/">#bagulhos</a></li>
                     <li><a href="/">#bagulheiros</a></li>
+                */}
+                    {
+                        this.props.trends.map(item => {
+                            return (
+                                <li>
+                                    <a href="/</li>">
+                                        #{item}
+                                    </a>
+                                </li>
+                            );
+                        })
+                    }
                 </ol>
+
             </div>
         )
     }

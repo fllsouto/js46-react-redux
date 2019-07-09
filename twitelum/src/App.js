@@ -25,7 +25,7 @@ class App extends Component {
                     </form>
                 </Widget>
                 <Widget>
-                    <TrendsArea />
+                    <TrendsArea trends={["bagulhos1", "bagulhos2", "bagulhos3"]}/>
                 </Widget>
             </Dashboard>
             <Dashboard posicao="centro">
