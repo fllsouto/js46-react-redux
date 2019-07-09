@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
 // CSSs Globais
 import "./assets/css/reset.css";
@@ -13,6 +10,11 @@ import "./assets/css/iconHeart.css";
 import "./assets/css/notificacao.css";
 
 import "./assets/css/novoTweet.css";
+
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
