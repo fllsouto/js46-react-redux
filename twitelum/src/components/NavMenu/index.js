@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import navMenuStyles from "./navMenu.module.css";
 
 export default class NavMenu extends Component {
@@ -23,9 +24,9 @@ export default class NavMenu extends Component {
             </a>
           </li>
           <li className={navMenuStyles.navMenu__item}>
-            <a className={navMenuStyles.navMenu__link} href="/logout">
+            <Link className={navMenuStyles.navMenu__link} to="/logout">
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

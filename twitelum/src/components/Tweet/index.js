@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import './tweet.css'
 
 class Tweet extends Component {
+    state = {
+        numeroLikes: this.props.totalLikes,
+        curtido: this.props.likeado
+    }
+
+    handleLike = ()
+
     render() {
         return (
             <article className="tweet">
@@ -11,10 +18,11 @@ class Tweet extends Component {
                     <a href="/"><span className="tweet__userName">@usuario</span></a>
                 </div>
                 <p className="tweet__conteudo">
-                    <span>Lorem, ipsum dolor sit <a href="/trends/#amet" data-reactroot="">#amet</a> consectetur adipisicing <a href="/trends/#elit" data-reactroot="">#elit</a>. Adipisci ut cumque tempora? Quam velit vitae voluptatum tempora iste, mollitia, sa</span>
+                    { this.props.texto }
                 </p>
                 <footer className="tweet__footer">
                     <button className="btn btn--clean">
+                        {/* fazer toggle no coração quando eu descurtir */}
                         <svg className="icon icon--small iconHeart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
                             <defs>
                                 <clipPath id="a">
