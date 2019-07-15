@@ -24,7 +24,7 @@ class App extends Component {
         evento.preventDefault();
 
         const { novoTweet, tweets } = this.state;
-        const resposta = away fetch(
+        const resposta = await fetch(
             `http://twitelum-api.herokuapp.com/tweets?X-AUTH-TOKEN=${localStorage.getItem('token')}`,
             {
                 method: 'POST',
@@ -112,7 +112,7 @@ class App extends Component {
                                         </span>
                                     </>
                                 )}
-                                { tweets.map((tweetInfo, index) => {
+                                { tweets.map(tweet => (
                                     <Tweet 
                                         key={tweet.id}
                                         avatarUrl={tweet.usuario.foto}
@@ -123,7 +123,7 @@ class App extends Component {
                                     >
                                         { tweet.conteudo }
                                     </Tweet>
-                                })}
+                                ))}
                             </div>
                         </Widget>
                     </Dashboard>

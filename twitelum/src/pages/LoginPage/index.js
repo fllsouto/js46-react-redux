@@ -97,7 +97,7 @@ class LoginPage extends Component {
                                         name="senha"/>
                                 </div>
                                 { this.state.erro &&  (<div className="loginPage__errorBox">
-                                    Mensagem de erro!
+                                    Usuário ou senha inválido!
                                 </div>) }
                                 <div className="loginPage__inputWrap">
                                     <button className="loginPage__btnLogin" type="submit">

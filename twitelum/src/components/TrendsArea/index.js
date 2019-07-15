@@ -11,17 +11,11 @@ class TrendsArea extends Component {
                     <li><a href="/">#bagulhos</a></li>
                     <li><a href="/">#bagulheiros</a></li>
                 */}
-                    {
-                        this.props.trends.map(item => {
-                            return (
-                                <li>
-                                    <a href="/</li>">
-                                        #{item}
-                                    </a>
-                                </li>
-                            );
-                        })
-                    }
+                    {this.props.trends.map((itemDaLista, indice) => (
+                        <li key={ indice }>
+                            <a href="/">#{itemDaLista}</a>
+                        </li>
+                    ))}
                 </ol>
 
             </div>
