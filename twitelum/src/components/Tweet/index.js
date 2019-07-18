@@ -1,7 +1,28 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import './tweet.css'
 
 class Tweet extends Component {
+    static propTypes = {
+        totalLikes: PropTypes.number,
+        likeado: PropTypes.bool,
+        removivel: PropTypes.bool,
+        avatarUrl: PropTypes.string,
+        id: PropTypes.string.isRequired,
+        children: PropTypes.node.isRequired, // string, number, bool, component
+        usuario: PropTypes.string.isRequired,
+        username:  PropTypes.string.isRequired,
+        onApagar: PropTypes.func
+    }
+
+    static defaultProps = {
+        onApagar: () => {},
+        totalLikes: 0,
+        likeado: false,
+        removivel: false,
+        avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
+    }
+
     state = {
         numeroLikes: this.props.totalLikes,
         curtido: this.props.likeado
@@ -9,11 +30,21 @@ class Tweet extends Component {
 
     handleLike = () => {
         const { curtido, numeroLikes } = this.state;
-
+        // o setState que provoca a execução do render de novo
         this.setState({
             numeroLikes: numeroLikes + (curtido ? -1 : 1),
             curtido: !curtido
         })
+    }
+
+    getHeartIcon() {
+        const { curtido } = this.state;
+
+        return `icon icon--small ${curtido ? 'iconHeart--active' : ''}`;
+    }
+
+    handleExcluir = () => {
+        this.props.onApagar(this.props.id);
     }
 
     render() {
@@ -21,7 +52,8 @@ class Tweet extends Component {
             avatarUrl,
             children,
             usuario,
-            username
+            username,
+            removivel
         } = this.props;
         const { numeroLikes } = this.state;
         return (
@@ -45,7 +77,9 @@ class Tweet extends Component {
                 <footer className="tweet__footer">
                     <button className="btn btn--clean" onClick={ this.handleLike }>
                         {/* fazer toggle no coração quando eu descurtir */}
-                        <svg className={`icon icon--small ${this.state.curtido ? 'iconHeart--active' : ''}`}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
+                        <svg 
+                            className={ this.getHeartIcon() }  
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
                             <defs>
                                 <clipPath id="a">
                                     <path d="M0 38h38V0H0v38z"></path>
@@ -57,6 +91,13 @@ class Tweet extends Component {
                         </svg>
                         { numeroLikes }
                     </button>
+                    {removivel && (
+                        <button
+                            onClick={ this.handleExcluir } 
+                            className="btn btn--blue btn--remove">
+                            X
+                        </button>
+                    )}
                 </footer>
             </article>
         )

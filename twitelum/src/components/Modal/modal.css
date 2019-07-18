@@ -1,0 +1,24 @@
+.modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none; /*Desabilita todas as interações com o mouse*/
+  /*
+    Esconde o elemento, mas faz com que o browser guarde ele e evite que esse 
+    trecho seja renderizado novamente
+  */
+  visibility: hidden;
+}
+
+.modal--aberto {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modal__wrap {
+  margin: 10%;
+}

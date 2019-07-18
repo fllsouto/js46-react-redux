@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
 import Cabecalho from '../../components/Cabecalho'
 import Widget from '../../components/Widget'
 
@@ -14,7 +12,7 @@ class erro404 extends Component  {
                 <div className="container">
                     <Widget />
                     <h2 className="loginPage__title">Seja bem vindo!</h2>
-                    <img src="https://http.cat/404.png" />
+                    <img src="https://http.cat/404.png" alt=""/>
                 </div>
             </div>
             

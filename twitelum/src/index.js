@@ -12,6 +12,9 @@ import "./assets/css/notificacao.css";
 
 import "./assets/css/novoTweet.css";
 
+import store from './store';
+import { Provider } from 'react-redux';
+
 import Routes from './routes';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -19,9 +22,11 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Routes />
-    </BrowserRouter>, 
+    <Provider store={store}>
+        <BrowserRouter>
+            <Routes />
+        </BrowserRouter>
+    </Provider>, 
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
