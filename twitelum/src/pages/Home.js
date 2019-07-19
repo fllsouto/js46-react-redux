@@ -6,9 +6,9 @@ import NavMenu from './../components/NavMenu'
 import Dashboard from './../components/Dashboard'
 import Widget from './../components/Widget'
 import TrendsArea from './../components/TrendsArea'
-import Tweet from './../components/Tweet'
 import Modal from '../components/Modal';
 
+import Tweet from './../containers/TweetConectado';
 import * as TweetsAPI from './../services/TweetsAPI';
 
 class App extends Component {

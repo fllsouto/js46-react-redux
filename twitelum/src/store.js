@@ -15,18 +15,29 @@ function reducer(store = stateInicial, action = {}) {
       // utilizados na action
       return { tweets: action.payload }
 
-      case 'NOVO_TWEET':
+    case 'NOVO_TWEET':
       return {
         tweets: [action.payload, ...store.tweets]
       };
 
-      case 'APAGA_TWEET':
+    case 'APAGA_TWEET':
       const idDoTweet = action.payload;
       const tweetsQueSobraram = store.tweets
         .filter((tweet) => tweet._id !== idDoTweet);
       return {
         tweets: tweetsQueSobraram
       }
+
+    case 'CURTE_TWEET':
+      const tweetCurtido = store.tweets
+        .find((tweet) => tweet._id === action.payload);
+      
+      tweetCurtido.totalLikes += tweetCurtido.likeado ? -1 : 1;
+      tweetCurtido.likeado = !tweetCurtido.likeado;
+
+      return {
+        tweets: [...store.tweets]
+      };
 
     default:
       return store;

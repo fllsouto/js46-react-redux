@@ -65,5 +65,19 @@ export async function deletaTweet(idDoTweet, token) {
     console.log(e);
     throw e;
   }
+}
 
+export async function likeTweet(idDoTweet, token) {
+  const resposta = await fetch(
+    `${apiUrl}${tweets.like.action}${idDoTweet}/like?X-AUTH-TOKEN=${token}`,
+    { method: tweets.like.method}
+  );
+
+  return {
+    success: resposta.ok,
+    action: {
+      type: 'CURTE_TWEET',
+      payload: idDoTweet
+    }
+  };
 }

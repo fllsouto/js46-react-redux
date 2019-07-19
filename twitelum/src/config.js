@@ -13,6 +13,10 @@ const config = {
       delete: {
         method: 'DELETE',
         action: '/tweets/'
+      },
+      like: {
+        method: 'POST',
+        action: '/tweers/'
       }
     }
   }
